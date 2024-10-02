@@ -1,43 +1,46 @@
 body {
     margin: 0;
 }
+
+
+/** For the nav bar **/
+
+#navbar {
+    position: sticky;
+    top: 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    display: block;
+}  
  
-ul {
+#tabs {
     list-style-type: none;
-    margin: 0;
     padding: 10px;
     overflow: hidden;
+    margin-top: -20px;
+    margin-bottom: -25px;
 }
 
-li {
+#tabs li {
     float: left;
 }
 
-li a {
+#tabs a {
     display: block;
-    padding: 10px;
+    padding: 10px 15px;
     color: #000;
     text-decoration: none;
 }
 
-/* Change the link color to #111 (black) on hover */
-li a:hover {
-  background-color: #182b49;
-  color: #ffff;
+#tabs a:hover {
+    background-color: #182b49;
+    color: #ffff;
 }
 
-.active {
-  background-color: #182b49;
-}
 
-#navbar {
-  position: sticky;
-  top: 0;
-  overflow: hidden;
-  background-color: #ffffff;
-}
+/** For the section 3 grid **/
 
-.row {
+.columns {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 25px;
@@ -45,33 +48,32 @@ li a:hover {
     padding: 10px;  
 }
 
-.row > * {
+.columns > * {
     overflow: auto;    
-    padding: 10px;
 }
 
-.one {
+#columnOne {
     grid-column: 1;
     grid-row: 1;
     max-height: 500px;
     padding: 10px;  
 }
 
-.two {
+#columnTwo {
     grid-column: 2;
     grid-row: 1;
     max-height: 500px;
     padding: 10px;  
 }
 
-.three {
+#columnThree {
     grid-column: 3;
     grid-row: 1;
     max-height: 500px;
     padding: 10px;  
 }
 
-.four {
+#columnFour {
     grid-column: 4;
     grid-row: 1;
     max-height: 500px;
@@ -79,3 +81,60 @@ li a:hover {
 }
 
 
+/** For shrinking **/
+
+@media screen and (max-width: 800px) {
+
+    #tabs {
+        display: none;
+    }
+
+    #ucsdWords{
+        max-width: 75%;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    p {
+        font-size: 20px;
+    }
+
+    .columns {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        grid-auto-rows: minmax(100px, auto);
+        padding: 10px;  
+    }
+    
+    #columnOne {
+        grid-column: 1;
+        grid-row: 1;
+        max-height: 500px;
+        padding: 10px;  
+    }
+    
+    #columnTwo {
+        grid-column: 2;
+        grid-row: 1;
+        max-height: 500px;
+        padding: 10px;  
+    }
+    
+    #columnThree {
+        grid-column: 1;
+        grid-row: 2;
+        max-height: 500px;
+        padding: 10px;  
+    }
+    
+    #columnFour {
+        grid-column: 2;
+        grid-row: 2;
+        max-height: 500px;
+        padding: 10px;  
+    }
+
+}
