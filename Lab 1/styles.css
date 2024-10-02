@@ -12,6 +12,10 @@ body {
     background-color: #ffffff;
     display: block;
 }  
+
+#ucsdWords {
+    max-width: 400px;
+}
  
 #tabs {
     list-style-type: none;
