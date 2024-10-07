@@ -17,7 +17,7 @@
        }
 
        label,
-       input {
+       input, select {
            display: block;
            margin-bottom: 10px;
        }
@@ -29,6 +29,9 @@
        .result {
            margin-top: 20px;
        }
+
+
+
    </style>
 </head>
 
@@ -38,9 +41,18 @@
        <form id="userForm">
            <label for="title">Title:</label>
            <input type="text" id="title" name="title" required>
+           <label for="content">content</label>
+           <input type="text" id="content" name="content" required>
+           <label for="noteLabel">Label Your Note:</label>
+           <select name="noteLabel" id="noteLabel">
+                <option value= "personal">Personal</option>>
+                <option value= "personal">Work</option>>
+                <option value= "personal">Study</option>>
+                <option value= "personal">Other</option>>
+            </select>
+
            <button type="submit">Submit</button>
        </form>
-
        <div class="result" id="result"></div>
    </div>
 
@@ -48,14 +60,43 @@
        document.getElementById("userForm").addEventListener("submit", function (event) {
            event.preventDefault();
 
-           // Get the input values
+           // Get the input values 
            const title = document.getElementById("title").value;
+           const content = document.getElementById("content").value;
+           const noteLabel = document.getElementById("noteLabel").value;
 
-           // Display the result
-           const resultDiv = document.getElementById("result");
-           resultDiv.innerHTML = `<h3>Submitted Information</h3>
-                                  <p>Title: ${title}</p>`;
+           // Display the result:
+            const resultTitleDiv = document.getElementById("result");
+            resultTitleDiv.innerHTML = `<h3>Submitted Information</h3>
+                                    <p>Title: ${title} </p> <p>Content: ${content} </p> <p>Label: ${noteLabel} </p>`;
+
        });
+
+       document.getElementById("title").addEventListener("focus", function () {
+           this.style.backgroundColor = "#e0f7fa";  // Light blue background on focus
+       });
+
+       document.getElementById("title").addEventListener("input", function () {
+           if (this.value.length > 50){
+
+                alert("Title cannot exceed 50 characters.")
+
+
+           }
+       });
+
+       document.getElementById("title").addEventListener("blur", function () {
+           this.style.backgroundColor = "";  // Reset background on blur
+       });
+
+       document.getElementById("content").addEventListener("focus", function () {
+           this.style.backgroundColor = "#e0f7fa";  // Light blue background on focus
+       });
+
+       document.getElementById("content").addEventListener("blur", function () {
+           this.style.backgroundColor = "";  // Reset background on blur
+       });
+
    </script>
 </body>
 
