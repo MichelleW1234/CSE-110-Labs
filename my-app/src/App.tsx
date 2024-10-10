@@ -24,6 +24,7 @@ function App() {
            <h2> {note.title} </h2>
            <p> {note.content} </p>
            <p> {note.label} </p>
+           <button> favorite </button>
          </div>
        ))}
      </div>
